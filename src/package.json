@@ -1,0 +1,15 @@
+{
+    "name": "azuriru",
+    "description": "Home-grown utility package.",
+    "version": "0.0.2",
+    "devDependencies": {
+        "postcss": "^8.4.24",
+        "postcss-load-config": "^4.0.1",
+        "postcss-selector-matches": "^4.0.0",
+        "sass": "^1.69.3",
+        "svelte": "^4.2.5",
+        "tslib": "^2.4.1",
+        "typescript": "^5.2.2"
+    },
+    "type": "module"
+}

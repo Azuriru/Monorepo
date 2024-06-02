@@ -1,0 +1,19 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "azuriru"
+    ],
+    "plugins": [
+        "@stylistic"
+    ],
+    "ignorePatterns": [
+        "node_modules/",
+        "build/",
+        "dist/",
+        "*.config.js",
+        "*.config.ts"
+    ]
+}
