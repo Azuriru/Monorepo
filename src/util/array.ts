@@ -92,3 +92,14 @@ export function insertAfterIndex<T>(array: T[], findIndex: (item: T) => boolean,
 export function appender<T>(item: T) {
     return (arr: T[]) => append(arr, item);
 }
+
+export function shuffle<T>(array: T[]): T[] {
+    const clone = copy(array);
+
+    for (let i = clone.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [clone[i], clone[j]] = [clone[j], clone[i]];
+    }
+
+    return clone;
+}
