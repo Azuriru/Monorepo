@@ -186,7 +186,7 @@ module.exports = {
         ],
         '@stylistic/new-parens': [
             'warn',
-            'never'
+            'always'
         ],
         '@stylistic/newline-per-chained-call': [
             'warn',
