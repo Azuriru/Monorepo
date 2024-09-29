@@ -110,7 +110,7 @@ module.exports = {
         'svelte/valid-each-key': 'warn',
 
         // Stylistic issues
-        'svelte/derived-has-same-inputs-outputs': 'warn',
+        'svelte/derived-has-same-inputs-outputs': 'off', // No other way
         'svelte/first-attribute-linebreak': [
             'warn',
             {
