@@ -91,6 +91,7 @@ module.exports = {
                 allowTransitions: false
             }
         ],
+        'svelte/no-inspect': 'warn',
         'svelte/no-reactive-functions': 'warn',
         'svelte/no-reactive-literals': 'warn',
         'svelte/no-unused-class-name': 'off',
@@ -126,6 +127,17 @@ module.exports = {
                 selfClosingTag: 'always'
             }
         ],
+        'svelte/html-closing-bracket-new-line': [
+            'warn',
+            {
+                singleline: 'never',
+                multiline: 'always',
+                selfClosingTag: {
+                    singleline: 'never',
+                    multiline: 'always'
+                }
+            }
+        ],
         'svelte/html-quotes': [
             'warn',
             {
@@ -141,6 +153,7 @@ module.exports = {
             {
                 'void': 'always',
                 normal: 'always',
+                foreign: 'always',
                 component: 'always',
                 svelte: 'always'
             }
