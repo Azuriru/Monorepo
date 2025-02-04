@@ -150,13 +150,7 @@ module.exports = {
         ],
         'svelte/html-self-closing': [
             'warn',
-            {
-                'void': 'always',
-                normal: 'always',
-                foreign: 'always',
-                component: 'always',
-                svelte: 'always'
-            }
+            'all'
         ],
         'svelte/indent': [
             'warn',
