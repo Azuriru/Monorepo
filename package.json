@@ -3,9 +3,8 @@
 	"description": "Personal monorepo for just about everything, day to day reusables, eslint configs, svelte configs, ts configs, you name it.",
 	"version": "0.0.2",
 	"devDependencies": {
-		"@stylistic/eslint-plugin": "^1.7.0",
-		"eslint": "^8.56.0",
-		"eslint-config-azuriru": "^2.2.0",
+		"eslint": "^10.0.2",
+		"eslint-config-azuriru": "^3.1.5",
 		"react": "^18.3.1",
 		"sass": "^1.69.3",
 		"tslib": "^2.4.1",

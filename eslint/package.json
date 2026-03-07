@@ -1,7 +1,7 @@
 {
 	"name": "eslint-config-azuriru",
 	"description": "My personal INCREDIBLY OPINIONATED configs for anything ESlint.",
-	"version": "2.2.5",
+	"version": "3.1.5",
 	"main": "index.js",
 	"eslintConfig": {
 		"env": {
@@ -20,20 +20,18 @@
 		}
 	},
 	"dependencies": {
-		"@stylistic/eslint-plugin": "^1.8.1",
-		"@typescript-eslint/eslint-plugin": "^6.21.0",
-		"@typescript-eslint/parser": "^6.21.0",
-		"eslint": "^8.57.0",
-		"eslint-plugin-antfu": "^2.2.0",
-		"eslint-plugin-react": "^7.34.1",
-		"eslint-plugin-react-hooks": "^4.6.2",
-		"eslint-plugin-svelte": "^2.46.1",
+		"@stylistic/eslint-plugin": "^5.10.0",
+		"eslint": "^10.0.3",
+		"eslint-plugin-antfu": "^3.2.2",
+		"eslint-plugin-import": "^2.32.0",
+		"eslint-plugin-react": "^7.37.5",
+		"eslint-plugin-react-hooks": "^7.0.1",
+		"eslint-plugin-svelte": "^3.15.0",
 		"eslint-plugin-svelte-stylistic": "^0.0.4",
-		"svelte": "^4.2.17",
-		"tslib": "^2.6.2",
-		"typescript": "^5.4.5"
-	},
-	"peerDependencies": {
-		"eslint": "^8.0.0"
+		"globals": "^17.4.0",
+		"svelte": "^5.53.7",
+		"tslib": "^2.8.1",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.56.1"
 	}
 }
