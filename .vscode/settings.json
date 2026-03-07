@@ -1,6 +1,10 @@
 {
     "eslint.validate": [
-        "svelte"
+        "svelte",
+        "javascript",
+        "typescript",
+        "js",
+        "ts"
     ],
     "eslint.format.enable": true,
     "eslint.lintTask.enable": true,
