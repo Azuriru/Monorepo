@@ -1,7 +1,7 @@
 import svelte from 'eslint-plugin-svelte';
-import tslint from 'typescript-eslint';
-import parser from 'svelte-eslint-parser';
 import { defineConfig } from 'eslint/config';
+import parser from 'svelte-eslint-parser';
+import tslint from 'typescript-eslint';
 
 export default (svelteConfig) => {
     return defineConfig(
@@ -28,14 +28,15 @@ export default (svelteConfig) => {
                 'svelte/no-dupe-on-directives': 'warn',
                 'svelte/no-dupe-style-properties': 'warn',
                 'svelte/no-dupe-use-directives': 'warn',
-                'svelte/no-dynamic-slot-name': 'warn',
-                'svelte/no-export-load-in-svelte-module-in-kit-pages': 'warn',
                 'svelte/no-not-function-handler': 'warn',
                 'svelte/no-object-in-text-mustaches': 'warn',
+                'svelte/no-raw-special-elements': 'warn',
                 'svelte/no-reactive-reassign': 'warn',
                 'svelte/no-shorthand-style-property-overrides': 'warn',
                 'svelte/no-store-async': 'warn',
+                'svelte/no-top-level-browser-globals': 'warn',
                 'svelte/no-unknown-style-directive-property': 'warn',
+                'svelte/prefer-svelte-reactivity': 'warn',
                 'svelte/require-store-callbacks-use-set-param': 'warn',
                 'svelte/require-store-reactive-access': 'warn',
                 'svelte/valid-compile': [
@@ -44,11 +45,11 @@ export default (svelteConfig) => {
                         ignoreWarnings: false
                     }
                 ],
-                'svelte/valid-prop-names-in-kit-pages': 'off',
+                'svelte/valid-style-parse': 'warn',
 
                 // Security vulnerabilities
                 'svelte/no-at-html-tags': 'off',
-                'svelte/no-target-blank': 'off',
+                'svelte/no-target-blank': 'off', // Reconsider later
 
                 // Best practices
                 'svelte/block-lang': [
@@ -68,6 +69,7 @@ export default (svelteConfig) => {
                         reset: true
                     }
                 ],
+                'svelte/no-add-event-listener': 'warn',
                 'svelte/no-at-debug-tags': 'off',
                 'svelte/no-ignored-unsubscribe': 'warn',
                 'svelte/no-immutable-reactive-statements': 'warn',
@@ -77,11 +79,23 @@ export default (svelteConfig) => {
                         allowTransitions: false
                     }
                 ],
-                'svelte/no-inspect': 'warn',
+                'svelte/no-inspect': 'off',
                 'svelte/no-reactive-functions': 'warn',
                 'svelte/no-reactive-literals': 'warn',
+                'svelte/no-svelte-internal': 'warn',
+                'svelte/no-unnecessary-state-wrap': ['warn', {
+                    additionalReactiveClasses: [],
+                    allowReassign: true
+                }],
                 'svelte/no-unused-class-name': 'off',
+                'svelte/no-unused-props': ['error', {
+                    checkImportedTypes: true,
+                    ignoreTypePatterns: [],
+                    ignorePropertyPatterns: [],
+                    allowUnusedNestedProperties: false
+                }],
                 'svelte/no-unused-svelte-ignore': 'warn',
+                'svelte/no-useless-children-snippet': 'warn',
                 'svelte/no-useless-mustaches': [
                     'warn',
                     {
@@ -89,6 +103,7 @@ export default (svelteConfig) => {
                         ignoreStringEscape: true
                     }
                 ],
+                'svelte/prefer-const': 'warn',
                 'svelte/prefer-destructured-store-props': 'off',
                 'svelte/require-each-key': 'warn',
                 'svelte/require-event-dispatcher-types': 'warn',
@@ -97,20 +112,13 @@ export default (svelteConfig) => {
                 'svelte/valid-each-key': 'warn',
 
                 // Stylistic issues
+                'svelte/consistent-selector-style': 'off', // lmao I'm good bro
                 'svelte/derived-has-same-inputs-outputs': 'off', // No other way
                 'svelte/first-attribute-linebreak': [
                     'warn',
                     {
                         multiline: 'below',
                         singleline: 'beside'
-                    }
-                ],
-                'svelte/html-closing-bracket-spacing': [
-                    'warn',
-                    {
-                        startTag: 'never',
-                        endTag: 'never',
-                        selfClosingTag: 'always'
                     }
                 ],
                 'svelte/html-closing-bracket-new-line': [
@@ -122,6 +130,14 @@ export default (svelteConfig) => {
                             singleline: 'never',
                             multiline: 'always'
                         }
+                    }
+                ],
+                'svelte/html-closing-bracket-spacing': [
+                    'warn',
+                    {
+                        startTag: 'never',
+                        endTag: 'never',
+                        selfClosingTag: 'always'
                     }
                 ],
                 'svelte/html-quotes': [
@@ -182,8 +198,13 @@ export default (svelteConfig) => {
                 ],
 
                 // Extension rules
-                'svelte/no-inner-declarations': 'off', // I don't know how this works
+                'svelte/no-inner-declarations': 'off', // Unnnecessary, but useful
                 'svelte/no-trailing-spaces': 'warn',
+
+                // SvelteKit
+                'svelte/no-export-load-in-svelte-module-in-kit-pages': 'warn',
+                'svelte/no-navigation-without-resolve': 'warn', // Disgusting. But fine.
+                'svelte/valid-prop-names-in-kit-pages': 'warn',
 
                 // System
                 'svelte/comment-directive': [
@@ -191,7 +212,8 @@ export default (svelteConfig) => {
                     {
                         reportUnusedDisableDirectives: true
                     }
-                ]
+                ],
+                'svelte/system': 'warn' // Wtf does this even DO
             }
         }
     );
