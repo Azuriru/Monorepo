@@ -5,6 +5,8 @@ import stylistic from '@stylistic/eslint-plugin';
 import { plugin as tslint, parser } from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
 
+export { default as svelte } from './svelte';
+
 export default defineConfig(
     {
         languageOptions: {
@@ -77,7 +79,7 @@ export default defineConfig(
             'import/no-relative-parent-imports': 'off',
             'import/no-restricted-paths': 'off',
             'import/no-self-import': 'warn',
-            'import/no-unresolved': 'warn', // I think ts already does this but sure
+            'import/no-unresolved': 'off', // I think ts already does this but sure // stupid shit doesn't even work with eslint/config
             'import/no-useless-path-segments': 'warn',
             'import/no-webpack-loader-syntax': 'warn',
 
@@ -85,7 +87,7 @@ export default defineConfig(
             'import/consistent-type-specifier-style': 'off', // I should configure this later
             'import/dynamic-import-chunkname': 'warn',
             'import/exports-last': 'off',
-            'import/extensions': 'warn', // Generally, you don't need to
+            'import/extensions': 'off', // Generally, you don't need to // .config.js exception but meh
             'import/first': 'warn',
             'import/group-exports': 'off', // No way
 
@@ -326,7 +328,7 @@ export default defineConfig(
             '@stylistic/line-comment-position': 'off', // Subjective.
             '@stylistic/linebreak-style': [
                 'warn',
-                'windows'
+                'unix'
             ],
             '@stylistic/lines-around-comment': 'off',
             '@stylistic/lines-between-class-members': [
