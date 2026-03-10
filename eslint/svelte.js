@@ -10,7 +10,7 @@ export default (svelteConfig) => {
                 svelte
             },
             files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
-            ignores: ['eslint.config.js', 'svelte.config.js'],
+            ignores: [], // ['svelte.config.js'],
             languageOptions: {
                 parser,
                 parserOptions: {

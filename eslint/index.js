@@ -5,20 +5,20 @@ import stylistic from '@stylistic/eslint-plugin';
 import { plugin as tslint, parser } from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
 
-export { default as svelte } from './svelte';
+export { default as svelte } from './svelte.js';
 
 export default defineConfig(
+    // Shared JS/TS config
     {
+        files: ['**/*.ts', '**/*.js', '**/*.cjs'],
+        ignores: [],
         languageOptions: {
             parser,
             globals: {
                 ...globals.browser,
                 ...globals.node
             }
-        }
-    },
-    // Shared JS/TS config
-    {
+        },
         plugins: {
             'antfu': antfu,
             'import': imports,
@@ -52,7 +52,9 @@ export default defineConfig(
             // Let's see if this gets annoying fast
             'import/no-named-as-default-member': 'warn',
 
-            'import/no-unused-modules': ['warn', {
+            // This shit is actually plagued with issues lol
+            // https://github.com/import-js/eslint-plugin-import/issues?q=is%3Aissue%20state%3Aopen%20no-unused-modules.md
+            'import/no-unused-modules': ['off', {
                 missingExports: true,
                 unusedExports: false, // Hey, we'll find a use for them
                 ignoreUnusedTypeExports: false,
