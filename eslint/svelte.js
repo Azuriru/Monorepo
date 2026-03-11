@@ -6,11 +6,8 @@ import tslint from 'typescript-eslint';
 export default (svelteConfig) => {
     return defineConfig(
         {
-            plugins: {
-                svelte
-            },
-            files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
-            ignores: [], // ['svelte.config.js'],
+            plugins: { svelte },
+            files: ['**/*.svelte', '**/*.svelte.js', '**/*.svelte.ts'],
             languageOptions: {
                 parser,
                 parserOptions: {

@@ -2,7 +2,7 @@ import globals from 'globals';
 import antfu from 'eslint-plugin-antfu';
 import imports from 'eslint-plugin-import';
 import stylistic from '@stylistic/eslint-plugin';
-import { plugin as tslint, parser } from 'typescript-eslint';
+import ts, { plugin as tslint, parser } from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
 
 export { default as svelte } from './svelte.js';
@@ -10,8 +10,12 @@ export { default as svelte } from './svelte.js';
 export default defineConfig(
     // Shared JS/TS config
     {
-        files: ['**/*.ts', '**/*.js', '**/*.cjs'],
-        ignores: [],
+        'extends': [
+            ts.configs.base,
+            {
+                files: ['**/*.ts', '**/*.js']
+            }
+        ],
         languageOptions: {
             parser,
             globals: {
