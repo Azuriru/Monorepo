@@ -85,7 +85,7 @@ export default (svelteConfig) => {
                     allowReassign: true
                 }],
                 'svelte/no-unused-class-name': 'off',
-                'svelte/no-unused-props': ['error', {
+                'svelte/no-unused-props': ['warn', {
                     checkImportedTypes: true,
                     ignoreTypePatterns: [],
                     ignorePropertyPatterns: [],

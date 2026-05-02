@@ -575,7 +575,10 @@ export default defineConfig(
                 'warn',
                 {
                     before: false,
-                    after: true
+                    after: true,
+                    overrides: {
+                        arrow: 'ignore'
+                    }
                 }
             ],
             '@stylistic/type-generic-spacing': [
