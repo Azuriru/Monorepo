@@ -14,8 +14,8 @@ type RecordKey = number | string | symbol;
  * @param item The item to extend into the original object
  * @returns A function that will take an original object and return it extended
  */
-export function updater<T, K extends RecordKey>(item: T): (original: Record<string, T>) => T {
-    return (original: Record<K, T>) => ({ ...original, ...item });
+export function updater<T>(extend: Partial<T>): (original: T) => T {
+    return (original: T) => ({ ...original, ...extend });
 }
 
 /**

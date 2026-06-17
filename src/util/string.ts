@@ -12,7 +12,7 @@ export const capitalize = (str: string, num = 1) => `${str.slice(0, num).toUpper
 
 export const thousandify = (number: number | string) => `${number}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-export const normalize = (str: string) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+export const normalize = (str: string) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\p{L}\p{N} ]/gu, '');
 
 export const stringify = (str: string) => normalize(str).toLowerCase().replace(/ /g, '-');
 

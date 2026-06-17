@@ -1,5 +1,6 @@
-import { writable, type Subscriber, type Unsubscriber, type Updater, type Writable, type StartStopNotifier } from 'svelte/store';
+import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
+import type { Subscriber, Unsubscriber, Updater, Writable, StartStopNotifier } from 'svelte/store';
 import type { JSONValue } from '../util/types';
 
 export type StoreContract<T> = {
@@ -51,8 +52,8 @@ export const localStorageBacked = function<T>(key: string, initial: T) {
     });
 };
 
-let data: Record<string, any> | null = null;
-export const centralizedKey = 'azu-persistibles';
+let data: Record<string, unknown> | null = null;
+export const centralizedKey = 'persistibles';
 export const persistible = function<T extends JSONValue>(localKey: string, initial: T): StoreContract<T> {
     if (browser && data === null) {
         const stored = localStorage.getItem(centralizedKey);
@@ -78,7 +79,7 @@ export const persistible = function<T extends JSONValue>(localKey: string, initi
             },
             subscribe: (callback) => source.subscribe(callback),
             init: (set) => {
-                if (data) set(data[localKey]);
+                if (data) set(data[localKey] as T);
             }
         };
     });

@@ -1,3 +1,7 @@
+export function filled<T = number>(length: number, generator: (index: number) => T = (i) => i as T): T[] {
+    return Array(length).fill(undefined).map((_, i) => generator(i));
+}
+
 export function copy<T>(array: T[]): T[] {
     const copy = array.slice();
 
@@ -102,4 +106,20 @@ export function shuffle<T>(array: T[]): T[] {
     }
 
     return clone;
+}
+
+export function chunk<T>(array: T[], by: number) {
+    const chunked: T[][] = [];
+
+    for (let i = 0; i < array.length; i += by) {
+        chunked.push(array.slice(i, i + by));
+    }
+
+    return chunked;
+}
+
+export function* generateChunk<T>(array: T[], by: number) {
+    for (let i = 0; i < array.length; i += by) {
+        yield array.slice(i, i + by);
+    }
 }
