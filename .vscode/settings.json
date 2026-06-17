@@ -6,11 +6,24 @@
         "js",
         "ts"
     ],
+    "stylelint.validate": [
+        "css",
+        "scss",
+        "sass",
+        "svelte",
+    ],
     "eslint.format.enable": true,
     "eslint.lintTask.enable": true,
     "eslint.workingDirectories": [],
     "svelte.plugin.svelte.compilerWarnings": {
         "css-unused-selector": "ignore",
-        "a11y-autofocus": "ignore"
-    }
+        "a11y-autofocus": "ignore",
+        // Svelte 5 onwards
+        "css_unused_selector": "ignore",
+        "element_invalid_self_closing_tag": "ignore",
+        "a11y_autofocus": "ignore",
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": "always"
+    },
 }
